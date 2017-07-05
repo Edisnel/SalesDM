@@ -1,0 +1,35 @@
+{% extends "page.html" %}
+
+{% block content %}
+
+    <div class="span6">
+
+            <h3>Autenticacion</h3>
+            {% if form.errors %}
+                <p>
+                    El usuario y contraseña no coinciden, intente nuevamente.
+                </p>
+            {% else %}
+                <p>Por favor, use el siguiente formulario para autenticarse. Si no tiene una cuenta <a href="{% url "register" %}">Registrese aqui</a></p>
+            {% endif %}
+
+            <!--<div class="horizontal-form"> -->
+
+               <form action="{% url 'login' %}" method="post">
+                    {{ form.as_p }}
+                    {% csrf_token %}
+                    <input type="hidden" name="next" value="{{ next }}" />
+                    <p><input type="submit" value="Autenticarse"></p>
+                </form>
+
+                <p><a href="{% url "password_reset" %}">Olvidaste tu contraseña?</a></p>
+
+            <!--</div> -->
+
+    </div>
+
+    <div class="span6">
+
+    </div>
+
+{% endblock %}

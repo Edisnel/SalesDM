@@ -1,0 +1,154 @@
+{% extends "page.html" %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     {% block title %}
+        <title>Pagina principal</title>
+    {% endblock %}
+</head>
+<body>
+
+    {% block content %}
+
+         <div class="span6">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause="false">
+                 <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1"></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                  </ol>
+
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner">
+
+                    <div class="item active">
+                      <img src="{% static 'img/carousel/carousel1.png' %}" alt="Chania" class="img-responsive">
+                      <!--<div class="carousel-caption">
+                        <h3>Los Angeles</h3>
+                        <p>LA is always so much fun!</p>
+                      </div> -->
+                    </div>
+
+                    <div class="item">
+                      <img src="{% static 'img/carousel/carousel2.png' %}" alt="Chicago" class="img-responsive">
+                    </div>
+
+                    <div class="item">
+                      <img src="{% static 'img/carousel/carousel3.png' %}" alt="New York" class="img-responsive">
+                    </div>
+
+                    <div class="item">
+                      <img src="{% static 'img/carousel/carousel4.png' %}" alt="New York" class="img-responsive">
+                    </div>
+
+                    <div class="item">
+                      <img src="{% static 'img/carousel/carousel5.png' %}" alt="New York" class="img-responsive">
+                    </div>
+
+                  </div>
+
+            </div>
+         </div>
+
+         <div class="span6">
+             <div class="span6">
+                    <div class="alert alert-info">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <strong>SalesDM:</strong> Funcionalidades.
+                    </div>
+                            <!-- start: Accordion -->
+                         <div class="accordion" id="accordion2">
+
+                                <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle active" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                        <i class="icon-minus"></i> Ventas </a>
+                                    </div>
+                                    <div id="collapseOne" class="accordion-body collapse in">
+                                        <div class="accordion-inner">
+                                             - Prediccion de los valores de venta. Se procesan los valores de tres meses anteriores para predecir el comportamiento futuro
+                                            </br></br>
+                                             - Descubra las relaciones causales entre acciones de ventas y los resultados
+                                             </br></br>
+                                             - Encuentre patrones en los pedidos de compra de sus clientes. Tome la mejor decision para acomodar sus productos en los estantes de la tienda y en los almacenes
+                                             </br></br>
+                                             - Analisis de las ventas en el tiempo: tendencias y comportamiento
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                                        <i class="icon-plus"></i> Clientes </a>
+                                    </div>
+                                    <div id="collapseTwo" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                             - Predice y clasifica los clientes con mayores probabilidades de ordenar compras
+                                             </br></br>
+                                             - Concentra los recursos en los clientes mas prometedores
+                                            </br></br>
+                                             - Describe segmentos de clientes, informacion util para detectar riesgos de abando y trabajar en la retencion
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                                        <i class="icon-plus"></i> Productos </a>
+                                    </div>
+
+                                    <div id="collapseThree" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                             - Establezca precios a sus productos
+                                             - Comportamiento de los precios de los productos
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="accordion-group">
+
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                                        <i class="icon-plus"></i> Inventario </a>
+                                    </div>
+
+                                    <div id="collapseFour" class="accordion-body collapse">
+                                        <div class="accordion-inner">
+                                             - Patrones en los movimientos de inventario
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                         </div>
+                            <!--end: Accordion -->
+             </div>
+         </div>
+
+    {% endblock %}
+
+          {% block javascript %}
+
+                <script type='text/javascript'>
+                    $(document).ready(function() {
+                         $('.carousel').carousel({
+                             interval: 2000
+                         })
+                    });
+                </script>
+
+              {% endblock %}
+
+
+
+
+</body>
+</html>

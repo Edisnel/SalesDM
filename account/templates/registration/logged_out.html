@@ -1,0 +1,13 @@
+{% extends "page.html" %}
+
+{% block title %}
+    Salida exitosa
+{% endblock %}
+
+{% block content %}
+    <div class="span6">
+    <p>Has salido del sitio satisfactoriamente. Puedes <a href="{% url "login" %}">autenticarte otra vez</a></p>
+    </div>
+    <div class="span6">
+    </div>
+{% endblock %}
