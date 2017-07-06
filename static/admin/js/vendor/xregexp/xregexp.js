@@ -632,7 +632,7 @@ XRegExp = XRegExp || (function (undef) {
  * is passed forward to the next regex or returned.
  * @memberOf XRegExp
  * @param {String} str String to search.
- * @param {Array} chain Regexes that each search for matches within preceding results.
+ * @param {Array} chain Regexes that each search for matches within preceding deployment.
  * @returns {Array} Matches by the last regex in the chain, or an empty array.
  * @example
  *

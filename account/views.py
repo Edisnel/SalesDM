@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
-from .forms import LoginForm, UserRegistrationForm
+#from .forms import LoginForm
+from .forms import UserRegistrationForm
 
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.decorators import login_required
@@ -9,28 +10,27 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
-def user_login(request):
-    if request.method == 'POST':
-        form = LoginForm(request.POST)
-        if form.is_valid():
-            cd = form.cleaned_data
-            user = authenticate(username = cd['username'],
-                                password = cd['password'])
-            if user is not None:
-                if user.is_active:
-                    login(request, user)
-                    return HttpResponse('Authenticated successfully')
-                    #return render(request, 'account/login.html', {'form': form, 'autenticado': 1})
-                else:
-                    return HttpResponse('Disabled account')
-                    #return render(request, 'account/login.html', {'form': form, 'autenticado':2})
-        else:
-            return HttpResponse('Invalid login')
-    else:
-        form = LoginForm()
-
-    return render(request, 'account/login.html', {'form': form})
-
+# def user_login(request):
+#     if request.method == 'POST':
+#         form = LoginForm(request.POST)
+#         if form.is_valid():
+#             cd = form.cleaned_data
+#             user = authenticate(username = cd['username'],
+#                                 password = cd['password'])
+#             if user is not None:
+#                 if user.is_active:
+#                     login(request, user)
+#                     return HttpResponse('Authenticated successfully')
+#                     #return render(request, 'account/login.html', {'form': form, 'autenticado': 1})
+#                 else:
+#                     return HttpResponse('Disabled account')
+#                     #return render(request, 'account/login.html', {'form': form, 'autenticado':2})
+#         else:
+#             return HttpResponse('Invalid login')
+#     else:
+#         form = LoginForm()
+#
+#     return render(request, 'registration/login.html', {'form': form})
 
 def principal(request):
     return render(request, 'main/mainpage.html')
@@ -59,8 +59,7 @@ def register(request):
             # Create a new user object but avoid saving it yet
             new_user = user_form.save(commit=False)
             # Set the chosen password
-            new_user.set_password(
-                user_form.cleaned_data['password'])
+            new_user.set_password(user_form.cleaned_data['password'])
             # Save the User object
             new_user.save()
             return render(request, 'account/register_done.html', {'new_user': new_user})

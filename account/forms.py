@@ -5,20 +5,23 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth.models import User
 
-class LoginForm(forms.Form):
-    username = forms.CharField(label='Usuario', required=True)
-    password = forms.CharField(widget=forms.PasswordInput, label='Password', required=True)
 
-#class MyAuthenticationForm(AuthenticationForm):
-    # add your form widget here
-#    username = forms.CharField(label='Usuario', required=True)
-#    password = forms.CharField(widget=forms.PasswordInput, label='Contraseña', required=True)
-
-#class PassChangeForm(PasswordChangeForm):
-    # add your form widget here
-#    old_password  = forms.CharField(widget=forms.PasswordInput, label='Contraseña antigua:', required=True)
-#    new_password1 = forms.CharField(widget=forms.PasswordInput, label='Contraseña nueva:', required=True)
-#    new_password2 = forms.CharField(widget=forms.PasswordInput, label='Contraseña nueva (confirmación):', required=True)
+# class LoginForm(forms.Form):
+#     username = forms.CharField(label='Usuario', required=True)
+#     password = forms.CharField(widget=forms.PasswordInput, label='Contraseña', required=True)
+#
+#
+# class MyAuthenticationForm(AuthenticationForm):
+#     # add your form widget here
+#     username = forms.CharField(label='Usuario', required=True)
+#     password = forms.CharField(widget=forms.PasswordInput, label='Contraseña', required=True)
+#
+#
+# class PassChangeForm(PasswordChangeForm):
+#     # add your form widget here
+#     old_password  = forms.CharField(widget=forms.PasswordInput, label='Contraseña antigua:', required=True)
+#     new_password1 = forms.CharField(widget=forms.PasswordInput, label='Contraseña nueva:', required=True)
+#     new_password2 = forms.CharField(widget=forms.PasswordInput, label='Contraseña nueva (confirmación):', required=True)
 
 
 class UserRegistrationForm(forms.ModelForm):

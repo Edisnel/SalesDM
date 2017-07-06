@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'AI',
     'django.contrib.admin',
 )
 
@@ -97,6 +98,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+#STATIC_ROOT = "/home/ecarrazana/PycharmProjects/salesdm/static"
+
+EMAIL_HOST = 'correo.tm.cupet.cu'
+DEFAULT_FROM_EMAIL= 'ecarrazana'
+EMAIL_HOST_USER = 'ecarrazana@tm.cupet.cu'
+EMAIL_HOST_PASSWORD = 'elcamino123*'
+EMAIL_PORT = 25
+EMAIL_USE_TLS = True
 
 
 

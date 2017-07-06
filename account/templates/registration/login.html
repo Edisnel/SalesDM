@@ -1,4 +1,5 @@
 {% extends "page.html" %}
+{% load account_tags %}
 
 {% block content %}
 
@@ -13,14 +14,22 @@
                 <p>Por favor, use el siguiente formulario para autenticarse. Si no tiene una cuenta <a href="{% url "register" %}">Registrese aqui</a></p>
             {% endif %}
 
-            <!--<div class="horizontal-form"> -->
+            <form class="form-" action="{% url 'login' %}" method="post">
 
-               <form action="{% url 'login' %}" method="post">
-                    {{ form.as_p }}
-                    {% csrf_token %}
-                    <input type="hidden" name="next" value="{{ next }}" />
-                    <p><input type="submit" value="Autenticarse"></p>
-                </form>
+               {% csrf_token %}
+               {% for field in form %}
+                   <div class="fieldWrapper">
+                       {{ field.errors }}
+                       {{ field.label_tag }}
+                       {{ field }}
+                   </div>
+               {% endfor %}
+
+               <input type="hidden" name="next" value="{{ next }}" />
+
+                <p><input type="submit" value="Autenticarse"></p>
+
+            </form>
 
                 <p><a href="{% url "password_reset" %}">Olvidaste tu contraseña?</a></p>
 
